@@ -1,0 +1,55 @@
+// Set box-sizing globally to handle padding and border widths
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+// The base font-size is set at 62.5% for having the convenience
+// of sizing rems in a way that is similar to using px: 1.6rem = 16px
+html {
+  //font-size: 62.5%;
+  height: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+// Default body styles
+body {
+  color: $color-text;
+  font-family: $font-face-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  letter-spacing: 0.01em;
+  line-height: $font-line-height-base;
+  overflow-x: hidden;
+  min-width: 320px;
+  margin: 0;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  height: auto;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: $color-bg2;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 3s linear;
+  margin-top:10px;
+  pointer-events: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+::selection {
+  background-color: $color-alt-bg;
+  color: $color-text;
+}

@@ -1,0 +1,186 @@
+.relative {
+  position: relative;
+}
+
+// .container is main centered wrapper
+.container {
+  margin: 0 auto;
+  max-width: 90%;
+  padding: 0 $container-padding;
+  position: relative;
+  width: 100%;
+}
+
+.container-light {
+  margin: 5px auto;
+  max-width: 100%;
+  min-height: 5rem;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  background-color: $color-bg;
+  border : 1px solid $color-bg2;
+}
+
+.container-menu {
+  padding: 10px;
+  display: grid;
+  max-width: 100%;
+  justify-content: space-between;
+  justify-items: end;
+  grid-template-columns: 100px auto 65%;
+  width: 100%;
+}
+.container-red {
+  padding: 10px;
+  display: grid;
+  max-width: 100%;
+  justify-items: center;
+  align-content: center;
+  width: 100%;
+  margin-bottom:30px;
+  background-color: rgba(220, 53, 69, 0.18);
+  border: 1px solid $color-alert;
+  color: $color-alert;
+}
+
+.item-chart {
+  grid-area: chart;
+  width: 100%;
+  margin-top: 24px;
+}
+.item-grid1{
+  grid-area: grid1;
+}
+.item-grid2 {
+  grid-area: grid2;
+}
+
+.container-top {
+  margin: 0 auto;
+  display: grid;
+  max-width: 100%;
+  padding: 0;
+  width: 100%;
+  grid-column-gap: 25px;
+  justify-content: space-between;
+  align-items: stretch;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+          "chart grid1"
+          "grid2 grid2"
+}
+
+.block {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 10px $container-padding;
+  position: relative;
+  width: 100%;
+}
+
+.container-details {
+  margin: 0 auto;
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: 3fr 7fr;
+  grid-column-gap: 10px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  & .block-caption {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    margin-top:20px;
+  }
+  & .block-title {
+    font-size: 35px;
+    font-weight: 400;
+    color: #898d8d;
+    margin-top:50px;
+  }
+  & .block-height {
+    font-size: 70px;
+    font-weight: 500;
+    color: #000;
+    margin-top:20px;
+    white-space: nowrap;
+  }
+  & .block-hash {
+    font-size: 18px;
+    color: rgba(137, 141, 141, 0.5);
+    font-weight: normal;
+    margin-top:18px;
+    word-wrap: break-word;
+  }
+  & .block-txs {
+    font-size: 35px;
+    font-weight: 300;
+    color: #000000;
+    margin-top:30px;
+  }
+  & .block-txs-label {
+    font-size: 15px;
+    font-weight: normal;
+    color: #898d8d;
+  }
+  & .block-size {
+    font-size: 18px;
+    font-weight: normal;
+    color: #898d8d;
+    margin-top:20px;
+  }
+  & .block-time {
+    font-size: 18px;
+    font-weight: normal;
+    color: #898d8d;
+    margin-top:20px;
+  }
+  & .block-index-label {
+    font-size: 18px;
+    font-weight: normal;
+    color: #898d8d;
+  }
+  & .block-index {
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(137, 141, 141, 0.5);
+    white-space: nowrap;
+  }
+  & .block-nonce-label {
+    font-size: 18px;
+    font-weight: normal;
+    color: #898d8d;
+  }
+  & .block-nonce {
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(137, 141, 141, 0.5);
+    white-space: nowrap;
+  }
+  & .block-subgrid {
+    margin-top:20px;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr;
+    & .block-subgrid-col {
+      width: 100%;
+    }
+  }
+  & .block-merkle-title {
+    font-size: 18px;
+    font-weight: normal;
+    color: #898d8d;
+    margin-top:20px;
+  }
+  & .block-merkle {
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(137, 141, 141, 0.5);
+    word-wrap: break-word;
+  }
+}
