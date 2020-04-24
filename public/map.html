@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Google Visualization API Sample</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        var rows = [
+            [{v: '150', f: 'Europe'}],
+            [{v: '142', f: 'Asia'}],
+            [{v: '002', f: 'Africa'}],
+            [{v: '009', f: 'Oceania'}],
+            [{v: '019', f: 'Americas'}],
+        ];
+        // google.load('visualization', '1', {packages: ['geochart']});
+        //
+        // google.setOnLoadCallback(drawVisualization);
+
+        google.charts.load('current', {'packages':['geochart', 'table']});
+        // google.charts.setOnLoadCallback(drawTable);
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        var width, height, selectedRegion, resolution;
+
+        window.onload = function(){
+            width = '100%';
+            height = 800;
+            selectedRegion = 'world';
+            resolution = 'continents';
+        };
+        function drawVisualization() {
+            // var data = new google.visualization.DataTable();
+            // data.addColumn('string', 'Region');
+            // data.addColumn('number', 'Countries');
+            // data.addRows([
+            //     [{v:'002',f:'Africa'}, {v:1,f:''}],
+            //     [{v:'009',f:'Oceania'}, {v:3,f:''}],
+            //     [{v:'142',f:'Asia'}, {v:5,f:''}],
+            //     [{v:'150',f:'Europe'}, {v:7,f:''}],
+            //     [{v:'019',f:'Americas'}, {v:9,f:''}],
+            // ]);
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Regions');
+            console.log(rows);
+            data.addRows(rows);
+
+            var table = new google.visualization.Table(document.getElementById('table'));
+            var geochart = new google.visualization.GeoChart(document.getElementById('chart'));
+
+
+
+
+            table.draw(data, {
+                showRowNumber: true,
+                page: 'enable',
+                pageSize: 10,
+                pagingButtons: 5,
+                width: '100%',
+                height: '100%'});
+
+            var options = {
+                displayMode: 'regions',
+                enableRegionInteractivity: 'true',
+                resolution: resolution,
+                region: selectedRegion,
+                height: height,
+                width: width,
+                sizeAxis: { minValue: 1, maxValue: 10},
+                colorAxis: {colors: ['#bfe4e7', '#006199']}
+            };
+
+            geochart.draw(data, options);
+
+            google.visualization.events.addListener(table, 'select', function() {
+                var selection = table.getSelection();
+                console.log('select', selection[0].row);
+                console.log(rows);
+                console.log('select', data.getValue(selection[0].row,0));
+                console.log('select', data.getFormattedValue(selection[0].row,0));
+                //, data.getValue(selection[0].row))
+            })
+
+            google.visualization.events.addListener(geochart, 'select', function() {
+                var selection = geochart.getSelection();
+                console.log('selection', selection)
+                console.log(rows);
+                // console.log('select', data.getValue(0));
+                // if (selection.length == 1) {
+                //     var selectedRow = selection[0].row;
+                //     selectedRegion = data.getValue(selectedRow, 0);
+                //     resolution = "countries";
+                //     options.region = selectedRegion;
+                //     options.resolution = resolution;
+                //     console.log(selectedRegion, resolution);
+                //     geochart.draw(data, options);
+                // }
+            });
+
+            google.visualization.events.addListener(geochart, 'regionClick', function() {
+                var selection = geochart.getSelection();
+                console.log('regionClick', selection)
+                console.log(rows);
+                // if (selection.length == 1) {
+                //     var selectedRow = selection[0].row;
+                //     selectedRegion = data.getValue(selectedRow, 0);
+                //     resolution = "countries";
+                //     options.region = selectedRegion;
+                //     options.resolution = resolution;
+                //     console.log(selectedRegion, resolution);
+                //     geochart.draw(data, options);
+                // }
+            });
+
+
+        }
+    </script>
+</head>
+<body style="font-family: Arial;border: 0 none;">
+<div style="display:grid; grid-template-columns: 3fr 1fr;">
+    <div id="chart"></div>
+    <div style="height: 500px">
+        <div id="table"></div>
+    </div>
+</div>
+</body>
+</html>

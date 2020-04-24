@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## mini blockchain explorer - react, hooks, highcharts, material-ui, blockchain API
 
+## Demo http://45.55.61.142:8081/
+
 ## Available Scripts
 
 In the project directory, you can run:

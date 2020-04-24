@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import {Router, Switch, Route} from 'react-router'
 import {createBrowserHistory} from 'history'
 import Layout from './views/layout/layout'
