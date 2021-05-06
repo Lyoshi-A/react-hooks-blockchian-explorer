@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "deepmerge": "^4.2.2",
-    "highcharts": "^8.0.4",
+    "highcharts": "^9.0.0",
     "highcharts-react-official": "^3.0.0",
     "history": "^4.10.1",
     "node-sass": "^4.14.0",
